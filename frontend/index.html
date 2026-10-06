@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LearnSphere | Smart Learning Assistant</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div class="bg-orb orb-one"></div>
+  <div class="bg-orb orb-two"></div>
+  <div class="bg-orb orb-three"></div>
+
+  <header class="navbar">
+    <div class="brand">
+      <div class="brand-icon">✦</div>
+      <div>
+        <div class="brand-name">LearnSphere</div>
+        <div class="brand-sub">GenAI Learning Assistant</div>
+      </div>
+    </div>
+    <div class="nav-pill"><span class="live-dot"></span> AI Tutor Online</div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div class="hero-content">
+        <div class="eyebrow">✨ PERSONALIZED LEARNING • POWERED BY GENERATIVE AI</div>
+        <h1>Learn smarter.<br><span>Achieve more.</span></h1>
+        <p>Turn any subject into a personalized learning experience with AI-generated study plans, explanations, quizzes and flashcards.</p>
+        <div class="hero-points">
+          <span>⚡ Instant generation</span>
+          <span>🎯 Personalized</span>
+          <span>📚 Exam focused</span>
+        </div>
+      </div>
+      <div class="hero-art">
+        <div class="ai-orbit">
+          <div class="orbit-ring ring-one"></div>
+          <div class="orbit-ring ring-two"></div>
+          <div class="ai-core">✦</div>
+          <span class="float-card card-a">📖 Learn</span>
+          <span class="float-card card-b">🧠 Practice</span>
+          <span class="float-card card-c">🏆 Improve</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="dashboard-grid">
+      <div class="glass-card input-card">
+        <div class="section-title">
+          <div class="step-badge purple">01</div>
+          <div>
+            <h2>Tell us what you want to learn</h2>
+            <p>Give the AI tutor a little context.</p>
+          </div>
+        </div>
+
+        <form id="learnForm">
+          <div class="form-row">
+            <label>Student Name
+              <div class="input-wrap"><span>👤</span><input id="student_name" required placeholder="Your name"></div>
+            </label>
+            <label>Course / Subject
+              <div class="input-wrap"><span>📘</span><input id="course" required placeholder="e.g. Data Structures"></div>
+            </label>
+          </div>
+
+          <label>Topic
+            <div class="input-wrap"><span>🔎</span><input id="topic" required placeholder="e.g. AVL Trees"></div>
+          </label>
+
+          <div class="form-row">
+            <label>Academic Level
+              <div class="input-wrap"><span>🎓</span>
+                <select id="level">
+                  <option>Beginner</option>
+                  <option selected>Intermediate</option>
+                  <option>Advanced</option>
+                </select>
+              </div>
+            </label>
+            <label>Study Time
+              <div class="input-wrap"><span>⏱️</span>
+                <select id="study_time">
+                  <option value="30">30 minutes</option>
+                  <option value="60" selected>60 minutes</option>
+                  <option value="90">90 minutes</option>
+                  <option value="120">2 hours</option>
+                </select>
+              </div>
+            </label>
+          </div>
+
+          <label>What is your goal?
+            <div class="input-wrap"><span>🎯</span><input id="goal" placeholder="e.g. Prepare for my exam"></div>
+          </label>
+
+          <div class="mode-heading">
+            <span>Choose your learning mode</span>
+            <small>AI will adapt its response</small>
+          </div>
+
+          <div class="mode-grid">
+            <button type="button" class="mode-btn selected" data-mode="study_plan">
+              <span class="mode-icon purple-bg">📅</span>
+              <span><b>Study Plan</b><small>Plan your time</small></span>
+            </button>
+            <button type="button" class="mode-btn" data-mode="explain">
+              <span class="mode-icon blue-bg">💡</span>
+              <span><b>Explain Topic</b><small>Understand concepts</small></span>
+            </button>
+            <button type="button" class="mode-btn" data-mode="quiz">
+              <span class="mode-icon orange-bg">📝</span>
+              <span><b>Generate Quiz</b><small>Test yourself</small></span>
+            </button>
+            <button type="button" class="mode-btn" data-mode="flashcards">
+              <span class="mode-icon pink-bg">🧠</span>
+              <span><b>Flashcards</b><small>Quick revision</small></span>
+            </button>
+          </div>
+
+          <button class="generate-btn" id="generateBtn" type="submit">
+            <span>✨</span> Generate My Learning Content <span class="arrow">→</span>
+          </button>
+        </form>
+      </div>
+
+      <div class="glass-card output-card">
+        <div class="output-top">
+          <div class="section-title compact">
+            <div class="step-badge green">02</div>
+            <div><h2>Your AI Learning Result</h2><p>Personalized just for you.</p></div>
+          </div>
+          <button id="copyBtn" class="icon-button" title="Copy output">⧉</button>
+        </div>
+
+        <div class="result-status" id="resultStatus">
+          <span class="sparkle">✦</span>
+          <div><b>Ready to help you learn</b><small>Fill the form and choose a learning mode.</small></div>
+        </div>
+
+        <div id="output" class="output">
+          <div class="empty-state">
+            <div class="empty-icon">✦</div>
+            <h3>Your personalized content will appear here</h3>
+            <p>Choose a topic on the left and let LearnSphere create your learning experience.</p>
+          </div>
+        </div>
+
+        <div id="feedback" class="feedback hidden">
+          <div class="feedback-head">
+            <div><b>03 · How useful was this?</b><small>Your feedback helps evaluate AI output quality.</small></div>
+          </div>
+          <div id="stars">
+            <button data-rating="1">★</button><button data-rating="2">★</button>
+            <button data-rating="3">★</button><button data-rating="4">★</button><button data-rating="5">★</button>
+          </div>
+          <div class="feedback-row">
+            <input id="feedbackComment" placeholder="Optional feedback...">
+            <button id="sendFeedback" class="feedback-btn" type="button">Submit</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="glass-card history-card">
+      <div class="output-top">
+        <div class="section-title compact">
+          <div class="step-badge orange">04</div>
+          <div><h2>Learning History</h2><p>Keep track of your recent AI sessions.</p></div>
+        </div>
+        <button id="refreshHistory" class="refresh-btn" type="button">↻ Refresh</button>
+      </div>
+      <div id="history" class="history"></div>
+    </section>
+
+    <footer>
+      <span>LearnSphere</span> · GenAI Personalized Learning Assistant · Built for smarter education
+    </footer>
+  </main>
+<script src="/app.js"></script>
+</body>
+</html>

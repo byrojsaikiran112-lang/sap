@@ -1,0 +1,16 @@
+AI-LMS SUBMISSION CHECKLIST
+
+[ ] Install Python
+[ ] Create venv
+[ ] pip install -r backend/requirements.txt
+[ ] Create Gemini API key
+[ ] Create backend/.env
+[ ] Run uvicorn main:app --reload from backend
+[ ] Open http://127.0.0.1:8000
+[ ] Test all 4 generation modes
+[ ] Test history
+[ ] Test feedback
+[ ] Capture screenshots
+[ ] Add screenshots to college report/PPT
+[ ] Deploy and test public URL
+[ ] Never submit backend/.env or expose API key
